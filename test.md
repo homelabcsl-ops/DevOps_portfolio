@@ -7,4 +7,4 @@ tags: []
 
 # test
 
-- [ ] checks
+- [x] checks
