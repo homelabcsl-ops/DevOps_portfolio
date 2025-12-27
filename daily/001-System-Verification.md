@@ -10,14 +10,14 @@ tags:
 status: In Progress
 ---
 
-# 🚀 System Verification Checklist (v1.6.0)
+# 🚀 System Verification Checklist (v1.6.1)
 
-**Objective:** Validate the integrity of the Mac Mini 2025 DevOps Environment.
+**Objective:** Validate the Integrity of the Mac Mini 2025 DevOps Environment.
 
 ## 1. Dashboard & Telemetry (The Cockpit)
 - [ ] **Startup:** Restart Neovim. Does the "DEVOPS KNOWLEDGE SYSTEM" header appear?
-- [ ] **Telemetry:** Do you see live stats (CPU/Mem/Disk) in the dashboard center?
-    - *If "No":* Did you create/chmod `~/.config/nvim/scripts/telem.sh`?
+- [ ] **Telemetry Data:** Look at the center section.
+    - *Pass Criteria:* Do you see `󰻠 CPU: X.XX | 󱠔 K8S: <context>`?
 - [ ] **Smart Launch:** From the Dashboard, press `<leader>on`.
     - *Pass Criteria:* Does it open a **new** buffer without the "Buffer not modifiable" error?
 
@@ -26,7 +26,7 @@ status: In Progress
     - Run `:ObsidianWorkspace devops`. Create a note. Check file path: is it in `~/obsidian/devops`?
     - Run `:ObsidianWorkspace personal`. Create a note. Check file path: is it in `~/obsidian/personal`?
 - [ ] **Templating:**
-    - inside a note, press `<leader>ot`. Select `daily-note`.
+    - Inside a note, press `<leader>ot`. Select `daily-note`.
     - *Pass Criteria:* Does it insert the Date/Time headers?
 - [ ] **Search:** Press `<leader>oo`. Does it grep through your notes?
 
