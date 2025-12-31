@@ -1,8 +1,15 @@
 ---
 id: 099-tmux-cheatsheet
-aliases: [Tmux Navigation, Mission Control Guide, Unibody Workflow]
-tags: [devops, tool/tmux, workflow/efficiency, phase-0]
-date: 2025-12-31
+aliases:
+  - Tmux Navigation
+  - Mission Control Guide
+  - Unibody Workflow
+tags:
+  - devops
+  - tool/tmux
+  - workflow/efficiency
+  - phase-0
+date: "2025-12-31"
 ---
 
 # 🕹️ Tmux & Mission Control Cheat Sheet
