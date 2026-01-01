@@ -70,3 +70,20 @@ date: "2025-12-31"
     * **Change:** Added `config.window_background_opacity = 0.8`.
     * **Change:** Added `config.macos_window_background_blur = 10`.
     * **Result:** Terminal now has a semi-transparent "frosted glass" background, improving integration with the macOS environment while maintaining the "Titanium" color scheme.
+
+   ### 🎨 Visual Calibration: Exact "Carbonfox" Match (Update 1.2)
+
+**Date:** 2026-01-01
+**Objective:** Synchronize WezTerm colors 1:1 with LazyVim `theme.lua` overrides.
+
+#### 1. WezTerm Configuration
+**File:** `~/.config/wezterm/wezterm.lua`
+* **Action:** Hardcoded Palette Alignment
+    * **Background:** Set to `#161616` (Deep Charcoal) to match `nightfox.nvim` `bg1` override.
+    * **Selection:** Set to `#2b2b2b` to match `sel0` override.
+    * **Foreground:** Set to `#b6b8bb` (Foggy Grey).
+    * **Reason:** Eliminates visual "jump" when opening/closing Neovim.
+* **Action:** ANSI Palette Standardization
+    * **Colors:** Mapped strictly to Carbonfox defaults (e.g., Yellow = `#08bdba` Teal).
+* **Action:** Visual Integration
+    * **Glass Effect:** Retained `opacity = 0.8` and `blur = 10` for macOS integration. 
