@@ -57,4 +57,16 @@ date: "2025-12-31"
     * **Change:** Added `christoomey/vim-tmux-navigator` to enable the Neovim side of the "Unibody" navigation.
 
 ---
-**Next Step:** Full system restart (or `kill-server`) required to apply all hooks.
+- [ ] **Next Step:** Full system restart (or `kill-server`) required to apply all hooks.
+
+### 🎨 Visual Polish Update (Addendum)
+
+**Date:** 2026-01-01
+**Context:** Finalizing Phase 0 Aesthetic
+
+#### 1. WezTerm Configuration
+**File:** `~/.config/wezterm/wezterm.lua`
+* **Action:** Transparency & Blur (Glass Effect)
+    * **Change:** Added `config.window_background_opacity = 0.8`.
+    * **Change:** Added `config.macos_window_background_blur = 10`.
+    * **Result:** Terminal now has a semi-transparent "frosted glass" background, improving integration with the macOS environment while maintaining the "Titanium" color scheme.
