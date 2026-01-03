@@ -12,22 +12,21 @@ tags:
 date: "2025-12-31"
 ---
 
-# 📝 System Change Log: Phase 0 (Cockpit Drill)
+# 📝 System Change Log
 
+## Phase 0: Cockpit Drill (Mission Control)
 **Objective:** Establish Frictionless "Mission Control" Environment
 **Status:** Implemented & Verified
 
-## 1. Interface Unification (WezTerm)
+### 1. Interface Unification (WezTerm)
 **File:** `~/.config/wezterm/wezterm.lua`
-
 * **Action:** Navigation Passthrough
     * **Change:** Added `config.keys` mapping to forward `CTRL + h/j/k/l` directly to Tmux, bypassing WezTerm interception.
 * **Action:** Auto-Launch
     * **Change:** Set `default_prog` to execute `~/bin/mission-control.sh` on startup.
 
-## 2. Workspace Multiplexer (Tmux)
+### 2. Workspace Multiplexer (Tmux)
 **File:** `~/.tmux.conf`
-
 * **Action:** Smart Navigation
     * **Change:** Implemented `is_vim` logic to seamlessly switch between Neovim splits and Tmux panes using standard directional keys.
 * **Action:** Visual Hierarchy (Titanium Theme)
@@ -38,9 +37,8 @@ date: "2025-12-31"
     * **Resizing:** Added `bind -r` for `h/j/k/l` (Resize by 5 cells).
     * **Zoom:** Added `bind m` to toggle pane maximization.
 
-## 3. Automation Scripts
-**File:** `~/bin/mission-control.sh` (New File)
-
+### 3. Automation Scripts
+**File:** `~/bin/mission-control.sh`
 * **Action:** Idempotent Startup
     * **Logic:** Script checks for "DKS-Main" session.
         * **If missing:** Builds 3-window layout.
@@ -50,40 +48,44 @@ date: "2025-12-31"
     2.  **Terminal:** `~` (Home)
     3.  **Monitor:** `btop` (Split with `k9s`)
 
-## 4. Neovim Integration
-**File:** `~/.config/nvim/lua/plugins/tmux.lua` (New File)
-
+### 4. Neovim Integration
+**File:** `~/.config/nvim/lua/plugins/tmux.lua`
 * **Action:** Plugin Installation
     * **Change:** Added `christoomey/vim-tmux-navigator` to enable the Neovim side of the "Unibody" navigation.
 
 ---
-- [ ] **Next Step:** Full system restart (or `kill-server`) required to apply all hooks.
 
-### 🎨 Visual Polish Update (Addendum)
+## Phase 1: DKS Skill System Integration
+**Objective:** Implement Automated Training & Observability Pipeline
+**Date:** 2026-01-03
+**Status:** Implemented & Verified
 
-**Date:** 2026-01-01
-**Context:** Finalizing Phase 0 Aesthetic
+### 1. Skill Module Provisioning
+**File:** `~/.config/nvim/lua/plugins/dks-skills.lua`
+* **Action:** Service Deployment
+    * **Precision:** Installed `ThePrimeagen/vim-be-good` (Key: `<leader>sp`).
+    * **Throughput:** Installed `NStefan002/speedtyper.nvim` (Key: `<leader>st`).
+* **Action:** Automation
+    * **Window Config:** Forced `Speedtyper` to launch in a focused, floating window (60% width/height).
 
-#### 1. WezTerm Configuration
-**File:** `~/.config/wezterm/wezterm.lua`
-* **Action:** Transparency & Blur (Glass Effect)
-    * **Change:** Added `config.window_background_opacity = 0.8`.
-    * **Change:** Added `config.macos_window_background_blur = 10`.
-    * **Result:** Terminal now has a semi-transparent "frosted glass" background, improving integration with the macOS environment while maintaining the "Titanium" color scheme.
+### 2. Observability Pipeline
+**File:** `~/.config/nvim/lua/plugins/dks-skills.lua` (Function `LogSkill`)
+* **Action:** Telemetry Bridge
+    * **Change:** Created user command `:LogSkill` utilizing `folke/snacks` UI.
+    * **Logic:** Captures Score + Timestamp → Appends to Obsidian file `~/Documents/Obsidian/DKS/00_META/metrics.md`.
 
-   ### 🎨 Visual Calibration: Exact "Carbonfox" Match (Update 1.2)
+### 3. Knowledge Base Infrastructure
+**File:** `Obsidian/DKS/00_META/metrics.md`
+* **Action:** Database Init
+    * **Change:** Created Markdown table schema for log ingestion.
+**File:** `Obsidian/DKS/DKS Skill Dashboard.md`
+* **Action:** Visualization
+    * **Change:** Implemented **Dataview** query to display recent performance metrics table.
 
-**Date:** 2026-01-01
-**Objective:** Synchronize WezTerm colors 1:1 with LazyVim `theme.lua` overrides.
+### 4. System Sanitation (Cleanup)
+* **Action:** Teardown
+    * **Removed:** `training.lua`, orphaned `autocmds` notifications, and shell notification functions.
+    * **State:** Executed `:Lazy clean` to purge unused binaries.
 
-#### 1. WezTerm Configuration
-**File:** `~/.config/wezterm/wezterm.lua`
-* **Action:** Hardcoded Palette Alignment
-    * **Background:** Set to `#161616` (Deep Charcoal) to match `nightfox.nvim` `bg1` override.
-    * **Selection:** Set to `#2b2b2b` to match `sel0` override.
-    * **Foreground:** Set to `#b6b8bb` (Foggy Grey).
-    * **Reason:** Eliminates visual "jump" when opening/closing Neovim.
-* **Action:** ANSI Palette Standardization
-    * **Colors:** Mapped strictly to Carbonfox defaults (e.g., Yellow = `#08bdba` Teal).
-* **Action:** Visual Integration
-    * **Glass Effect:** Retained `opacity = 0.8` and `blur = 10` for macOS integration. 
+---
+- [ ] **Next Step:** Configure Git workflow to version control `dks-skills.lua` and backup the DKS configuration.
