@@ -89,3 +89,13 @@ date: "2025-12-31"
 
 ---
 - [ ] **Next Step:** Configure Git workflow to version control `dks-skills.lua` and backup the DKS configuration.
+
+## [2026-01-04]
+### Added
+- **Johnny Decimal Automation:** Implemented `create_jd_note` function in `knowledge.lua`.
+    - Features: Auto-detects categories (`10-Linux`), calculates next ID (`10.01`), and prompts for title.
+    - Technical: Uses direct Lua `io.open/write` instead of `ObsidianNew` to bypass Neovim buffer locking issues and guarantee atomic file creation.
+
+### Fixed
+- **Buffer Lock Crash:** Resolved `Buffer is not modifiable` error by separating file creation (I/O) from file editing (UI).
+
